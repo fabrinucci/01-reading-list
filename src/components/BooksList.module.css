@@ -1,10 +1,11 @@
 .BooksList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 40px;
+  gap: 20px;
 }
 
 .BooksList img {
+  cursor: pointer;
   width: 180px;
   height: 300px;
   border-radius: 10px;

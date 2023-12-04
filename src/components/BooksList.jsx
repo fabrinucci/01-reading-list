@@ -1,14 +1,20 @@
-import data from '../data/books.json';
+import { useContext } from 'react';
 import style from './BooksList.module.css';
+import { BooksContext } from '../context';
 
 export const BooksList = () => {
-  const books = data.library;
+  const { books, addToLectureList } = useContext(BooksContext);
+
   return (
     <ul className={style.BooksList}>
       {books.map(({ book }) => (
         <li key={book.ISBN}>
           <figure>
-            <img src={book.cover} alt={book.title} />
+            <img
+              onClick={() => addToLectureList(book)}
+              src={book.cover}
+              alt={book.title}
+            />
           </figure>
         </li>
       ))}
