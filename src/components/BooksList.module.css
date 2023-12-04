@@ -1,12 +1,11 @@
 .BooksList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 40px;
 }
 
 .BooksList img {
-  width: 220px;
-  height: 320px;
+  width: 180px;
+  height: 300px;
   border-radius: 10px;
 }

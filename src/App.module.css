@@ -1,7 +1,44 @@
 .Main {
-  padding: 20px 40px;
+  padding: 20px;
 }
 
 .Main h1 {
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  font-size: 32px;
+}
+
+.Main p {
+  font-size: 18px;
+}
+
+.Container {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+  padding: 20px 0;
+}
+
+.Container section {
+  flex-basis: 90%;
+}
+
+.Container .BooksSection {
+  flex-shrink: 1;
+}
+
+.Container .LectureSection {
+  flex-shrink: 2;
+}
+
+.LectureSection {
+  background-color: #12171b;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  padding: 10px 20px;
+}
+
+.LectureSection h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
 }
