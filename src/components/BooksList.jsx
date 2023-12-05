@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import style from './BooksList.module.css';
 import { BooksContext } from '../context';
+import style from './BooksList.module.css';
 
 export const BooksList = () => {
   const { books, addToLectureList } = useContext(BooksContext);
