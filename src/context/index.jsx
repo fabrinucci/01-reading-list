@@ -7,7 +7,9 @@ export const BooksContext = createContext();
 export const BooksContextProvider = ({ children }) => {
   const [counterPages, setCounterPages] = useState(0);
   const [selectedGenre, setSelectedGenre] = useState('Todos');
-  const [lectureList, setLectureList] = useState([]);
+  const [lectureList, setLectureList] = useState(
+    JSON.parse(localStorage.getItem('books')) || [],
+  );
 
   const filteredBooks = () => {
     // No filter
@@ -43,13 +45,14 @@ export const BooksContextProvider = ({ children }) => {
   const addToLectureList = (book) => {
     const isInList = lectureList.some((b) => b.ISBN === book.ISBN);
     if (isInList) return;
-    book.inList = true;
-    setLectureList([...lectureList, book]);
+    localStorage.setItem('books', JSON.stringify([...lectureList, book]));
+    setLectureList(JSON.parse(localStorage.getItem('books')));
   };
 
   const removeFromLectureList = (book) => {
     const newList = lectureList.filter((b) => b.ISBN !== book.ISBN);
-    setLectureList(newList);
+    localStorage.setItem('books', JSON.stringify(newList));
+    setLectureList(JSON.parse(localStorage.getItem('books')));
   };
 
   const totalBooks = books.length;
