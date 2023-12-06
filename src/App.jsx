@@ -3,14 +3,30 @@ import { BooksList } from './components/BooksList';
 import { LectureList } from './components/LectureList';
 import { BooksContext } from './context';
 import style from './App.module.css';
+import { FilterBooks } from './components/FilterBooks';
 
 export const App = () => {
-  const { books, lectureList } = useContext(BooksContext);
+  const { totalBooks, filteredBooks, lectureList, selectedGenre } =
+    useContext(BooksContext);
+  const books = filteredBooks();
+
+  const lectureListGenre = (genre) => {
+    const books = lectureList.filter((book) => book.genre === genre);
+    return books.length;
+  };
 
   return (
     <main className={style.Main}>
-      <h1>{books.length - lectureList.length} Libros disponibles</h1>
+      <h1>{totalBooks - lectureList.length} Libros disponibles</h1>
       <p>{lectureList.length} en la lista de lectura</p>
+      {selectedGenre !== 'Todos' && (
+        <p>
+          {`${
+            books.length - lectureListGenre(selectedGenre)
+          } Libros disponibles en ${selectedGenre}`}
+        </p>
+      )}
+      <FilterBooks />
       <div className={style.Container}>
         <section className={style.BooksSection}>
           <BooksList />

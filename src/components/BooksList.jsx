@@ -3,8 +3,8 @@ import { BooksContext } from '../context';
 import style from './BooksList.module.css';
 
 export const BooksList = () => {
-  const { books, addToLectureList } = useContext(BooksContext);
-
+  const { filteredBooks, addToLectureList } = useContext(BooksContext);
+  const books = filteredBooks();
   return (
     <ul className={style.BooksList}>
       {books.map(({ book }) => (

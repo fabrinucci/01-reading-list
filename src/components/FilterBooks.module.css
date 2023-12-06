@@ -1,0 +1,9 @@
+.FilterContainer {
+  padding: 20px 0;
+  display: flex;
+  gap: 50px;
+}
+
+.FilterContainer h3 {
+  margin-bottom: 8px;
+}

@@ -4,11 +4,6 @@
 
 .Main h1 {
   margin-bottom: 10px;
-  font-size: 32px;
-}
-
-.Main p {
-  font-size: 18px;
 }
 
 .Container {
@@ -38,7 +33,6 @@
 }
 
 .LectureSection h2 {
-  font-size: 28px;
   margin-bottom: 20px;
   text-align: center;
 }

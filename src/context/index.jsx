@@ -5,13 +5,46 @@ import { library as books } from '../data/books.json';
 export const BooksContext = createContext();
 
 export const BooksContextProvider = ({ children }) => {
+  const [counterPages, setCounterPages] = useState(0);
+  const [selectedGenre, setSelectedGenre] = useState('Todos');
   const [lectureList, setLectureList] = useState([]);
+
+  const filteredBooks = () => {
+    // No filter
+    if (counterPages === 0 && selectedGenre === 'Todos') return books;
+
+    // Filter by genre
+    if (counterPages === 0 && selectedGenre !== 'Todos')
+      return books.filter(({ book }) => book.genre === selectedGenre);
+
+    // Filter by pages
+    if (counterPages !== 0 && selectedGenre === 'Todos')
+      return books.filter(({ book }) => book.pages >= counterPages);
+
+    // Filter by pages and genre
+    if (counterPages !== 0 && selectedGenre !== 'Todos') {
+      const filterBooksByCounter = books.filter(
+        ({ book }) => book.pages >= counterPages,
+      );
+      return filterBooksByCounter.filter(
+        ({ book }) => book.genre === selectedGenre,
+      );
+    }
+  };
+
+  const updateCounterPages = (e) => {
+    setCounterPages(e.target.value);
+  };
+
+  const updateSelectedGenre = (value) => {
+    setSelectedGenre(value);
+  };
 
   const addToLectureList = (book) => {
     const isInList = lectureList.some((b) => b.ISBN === book.ISBN);
     if (isInList) return;
-    const newList = [...lectureList, book];
-    setLectureList(newList);
+    book.inList = true;
+    setLectureList([...lectureList, book]);
   };
 
   const removeFromLectureList = (book) => {
@@ -19,9 +52,21 @@ export const BooksContextProvider = ({ children }) => {
     setLectureList(newList);
   };
 
+  const totalBooks = books.length;
+
   return (
     <BooksContext.Provider
-      value={{ books, lectureList, addToLectureList, removeFromLectureList }}
+      value={{
+        totalBooks,
+        lectureList,
+        counterPages,
+        selectedGenre,
+        filteredBooks,
+        updateCounterPages,
+        addToLectureList,
+        removeFromLectureList,
+        updateSelectedGenre,
+      }}
     >
       {children}
     </BooksContext.Provider>
