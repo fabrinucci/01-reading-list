@@ -7,3 +7,9 @@
 .FilterContainer h3 {
   margin-bottom: 8px;
 }
+
+.FilterGenre select {
+  padding: 5px;
+  background: var(--bg-color);
+  cursor: pointer;
+}
