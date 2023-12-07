@@ -1,4 +1,4 @@
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { library as books } from '../data/books.json';
 
@@ -10,6 +10,8 @@ export const BooksContextProvider = ({ children }) => {
   const [lectureList, setLectureList] = useState(
     JSON.parse(localStorage.getItem('books')) || [],
   );
+
+  const totalBooks = books.length;
 
   const filteredBooks = () => {
     // No filter
@@ -55,7 +57,19 @@ export const BooksContextProvider = ({ children }) => {
     setLectureList(JSON.parse(localStorage.getItem('books')));
   };
 
-  const totalBooks = books.length;
+  const onStorageUpdates = (e) => {
+    if (e.key === 'books') {
+      const newList = JSON.parse(e.newValue);
+      setLectureList(newList);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('storage', onStorageUpdates);
+    return () => {
+      window.removeEventListener('storage', onStorageUpdates);
+    };
+  }, []);
 
   return (
     <BooksContext.Provider
