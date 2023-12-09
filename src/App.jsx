@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import { BooksList } from './components/BooksList';
 import { LectureList } from './components/LectureList';
 import { BooksContext } from './context';
-import style from './App.module.css';
 import { FilterBooks } from './components/FilterBooks';
+import style from './App.module.css';
 
 export const App = () => {
   const { totalBooks, filteredBooks, lectureList, selectedGenre } =

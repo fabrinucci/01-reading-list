@@ -8,21 +8,10 @@
 
 .Container {
   display: flex;
+  flex-direction: column;
   width: 100%;
   gap: 30px;
   padding: 20px 0;
-}
-
-.Container section {
-  flex-basis: 90%;
-}
-
-.Container .BooksSection {
-  flex-shrink: 1;
-}
-
-.Container .LectureSection {
-  flex-shrink: 2;
 }
 
 .LectureSection {
@@ -35,4 +24,22 @@
 .LectureSection h2 {
   margin-bottom: 20px;
   text-align: center;
+}
+
+@media (min-width: 880px) {
+  .Container {
+    flex-direction: row;
+  }
+
+  .Container section {
+    flex-basis: 90%;
+  }
+
+  .Container .BooksSection {
+    flex-shrink: 1;
+  }
+
+  .Container .LectureSection {
+    flex-shrink: 2;
+  }
 }
