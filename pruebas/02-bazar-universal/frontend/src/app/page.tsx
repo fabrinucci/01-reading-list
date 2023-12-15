@@ -9,7 +9,7 @@ export default function Home() {
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (search === '') return;
-    router.push(`results/${search.toLowerCase()}`);
+    router.push(`items/?search=${search.toLowerCase()}`);
   };
   return (
     <main className='flex min-h-screen flex-col items-center justify-center p-24'>
