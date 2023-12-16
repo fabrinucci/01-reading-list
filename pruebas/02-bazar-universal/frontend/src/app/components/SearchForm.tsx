@@ -8,7 +8,7 @@ export const SearchForm = () => {
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (search === '') return;
-    router.push(`items/?search=${search.toLowerCase()}`);
+    router.push(`/items/?search=${search.toLowerCase()}`);
     setSearch('');
   };
   return (
