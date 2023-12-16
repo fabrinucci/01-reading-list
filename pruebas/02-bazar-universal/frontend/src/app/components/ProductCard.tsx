@@ -6,7 +6,8 @@ interface Props {
 }
 
 export const ProductCard = ({ product }: Props) => {
-  const { description, title, images, price, rating, stock } = product;
+  const { description, title, images, price, rating, stock, brand, category } =
+    product;
   return (
     <article className='flex flex-col items-center justify-center'>
       <figure>
@@ -19,13 +20,17 @@ export const ProductCard = ({ product }: Props) => {
         />
       </figure>
       <section className='my-8'>
-        <div className='text-center mb-6'>
-          <h2 className='text-2xl font-bold mb-4'>{product.title}</h2>
-          <div className='flex justify-center items-center gap-6 mb-4'>
+        <div className='flex flex-col gap-4 text-center mb-6'>
+          <h2 className='text-2xl font-bold'>{product.title}</h2>
+          <div className='flex justify-center items-center gap-4'>
             <p className='text-2xl font-bold'>{price} $</p>
             <span>{rating}</span>
           </div>
           <p>{stock} disponibles</p>
+          <p>{brand}</p>
+          <span className='mx-auto text-sm p-2 w-32 text-center rounded-md bg-gray-600'>
+            {category}
+          </span>
         </div>
         <p className='font-extralight text-lg'>{description}</p>
       </section>

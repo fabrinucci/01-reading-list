@@ -12,7 +12,10 @@ export const SearchForm = () => {
     setSearch('');
   };
   return (
-    <form onClick={handleSearch} className='flex items-center gap-4'>
+    <form
+      onClick={handleSearch}
+      className='flex flex-col sm:flex-row items-center gap-4'
+    >
       <input
         onChange={(e) => setSearch(e.target.value)}
         name='search'
@@ -21,7 +24,7 @@ export const SearchForm = () => {
         type='text'
         placeholder='laptops, smartphones'
       />
-      <button className='text-lg bg-[#E53C3C] p-2 h-12 w-full rounded-md hover:opacity-80 transition-all'>
+      <button className='text-lg bg-[#E53C3C] p-2 h-12 w-[150px] sm:w-full rounded-md hover:opacity-80 transition-all'>
         Buscar
       </button>
     </form>

@@ -32,7 +32,7 @@ export const FilterProducts = ({ productsData }: Props) => {
             onClick={() => {
               router.push(`items/${item.id}`);
             }}
-            className='flex justify-between gap-6 py-[40px] mx-auto cursor-pointer'
+            className='flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6 py-[40px] mx-auto cursor-pointer'
             key={item.id}
           >
             <figure>
@@ -44,13 +44,16 @@ export const FilterProducts = ({ productsData }: Props) => {
                 width={200}
               />
             </figure>
-            <section className='flex flex-col max-w-xs gap-3'>
+            <section className='flex flex-col items-center sm:items-stretch max-w-xs gap-3'>
               <h3 className='font-semibold text-lg'>{item.title}</h3>
               <p>{item.description}</p>
-              <div className='flex items-center justify-between'>
+              <div className='flex items-center justify-between gap-4 sm:gap-0'>
                 <p className='text-2xl font-bold'>{item.price} $</p>
                 <span>{item.rating}</span>
               </div>
+              <span className='text-sm p-2 w-32 text-center rounded-md bg-gray-600'>
+                {item.category}
+              </span>
             </section>
           </li>
         ))}
