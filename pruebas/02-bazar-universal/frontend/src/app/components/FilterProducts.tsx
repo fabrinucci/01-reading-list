@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useSearchParams } from 'next/navigation';
 import { Product } from '../types';
 
@@ -9,6 +10,7 @@ type Props = {
 };
 
 export const FilterProducts = ({ productsData }: Props) => {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const search = searchParams.get('search');
   const getProductsBySearch = (search: string | null) => {
@@ -27,6 +29,9 @@ export const FilterProducts = ({ productsData }: Props) => {
       <ul className='grid grid-cols-1 lg:grid-cols-2'>
         {products.map((item) => (
           <li
+            onClick={() => {
+              router.push(`items/${item.id}`);
+            }}
             className='flex justify-between gap-6 py-[40px] mx-auto cursor-pointer'
             key={item.id}
           >

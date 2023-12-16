@@ -7,3 +7,10 @@ export const getProducts = async () => {
   const data: Products = await res.json();
   return data.products;
 };
+
+export const getProduct = async (id: number) => {
+  const data = await getProducts();
+  const product = data.find((item) => item.id === id);
+  if (!product) return;
+  return product;
+};
