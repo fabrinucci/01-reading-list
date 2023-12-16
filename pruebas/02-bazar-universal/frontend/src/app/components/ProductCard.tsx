@@ -10,15 +10,32 @@ export const ProductCard = ({ product }: Props) => {
     product;
   return (
     <article className='flex flex-col items-center justify-center'>
-      <figure>
-        <Image
-          className='h-[250px] w-[250px] rounded-full'
-          src={images[0]}
-          alt={title}
-          height={300}
-          width={300}
-        />
-      </figure>
+      <div className='flex justify-center items-center gap-4'>
+        <figure>
+          <Image
+            className='h-[200px] w-auto aspect-square rounded-full'
+            src={images[0]}
+            alt={title}
+            height={200}
+            width={200}
+          />
+        </figure>
+        {images.length > 1 && (
+          <div className='flex flex-col gap-2'>
+            {images.slice(1).map((img, index) => (
+              <figure key={index}>
+                <Image
+                  className='border-4 border-gray-400 h-[75px] w-auto aspect-square rounded-full'
+                  src={img}
+                  alt={title}
+                  height={75}
+                  width={75}
+                />
+              </figure>
+            ))}
+          </div>
+        )}
+      </div>
       <section className='my-8'>
         <div className='flex flex-col gap-4 text-center mb-6'>
           <h2 className='text-2xl font-bold'>{product.title}</h2>
