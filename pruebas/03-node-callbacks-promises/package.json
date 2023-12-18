@@ -1,0 +1,16 @@
+{
+  "name": "03-node-callbacks-promises",
+  "version": "1.0.0",
+  "description": "Prueba tecnica node.js",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "supertest": "^6.3.3"
+  }
+}
