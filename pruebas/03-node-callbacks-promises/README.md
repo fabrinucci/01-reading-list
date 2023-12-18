@@ -1,5 +1,35 @@
 # Prueba Técnica JavaScript + Node.js
 
+- Tipo de prueba: Junior Fullstack -> JavaScript Frontend Vanilla + Node.js
+- Sector de la Empresa: Análisis de datos, monitorizaciones, procesamiento de datos.
+- Ubicación: España, Barcelona
+- Rango Salarial: 19.500€ - 22.000€ / año
+- Rango Normal Barcelona: 20K€ - 24K€ / año
+- [Link tutorial](https://www.youtube.com/watch?v=rtq2dNEyhCU&t)
+
+---
+
+- Junior -> Persona con poca experiencia pero con experiencia en el sector.
+- Trainee -> Persona sin experiencia pero con conocimientos.
+
+---
+
+## ¿Qué es lo que esperan?
+
+- Ejercicios de asincronía
+- Callbacks vs promesas
+- Creación de api rest
+- Encontrar errores en el código
+- Buenas prácticas y refactorización
+
+---
+
+## ¿Qué cosas estan permitidas hacer?
+
+- Leer documentación
+- Usar inteligencia artificial para preguntas concretas
+- No usar copilot
+
 Escribe las soluciones en el archivo `solutions/index.js` manteniendo el nombre de las funciones y sus `export`. Usa `ESModules` en tu proyecto de Node.js
 
 1 - Arregla esta función para que el código posterior funcione como se espera:
