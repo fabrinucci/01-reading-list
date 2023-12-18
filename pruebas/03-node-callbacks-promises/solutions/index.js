@@ -1,5 +1,6 @@
 import net from 'node:net';
 
+// ejercicio 1
 export const ping = (ip, callback) => {
   const startTime = process.hrtime();
 
@@ -19,3 +20,12 @@ ping('midu.dev', (err, info) => {
   if (err) console.error(err);
   console.log(info);
 });
+
+// ejercicio 2
+export function obtenerDatosPromise() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ data: 'datos importantes' });
+    }, 2000);
+  });
+}
