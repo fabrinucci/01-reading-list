@@ -4,13 +4,13 @@ import {
   procesarArchivoPromise,
   procesarArchivo,
   leerArchivos,
+  leerArchivosSync,
 } from '../solutions/index.js';
 
-import { describe, it, beforeEach, afterEach } from 'node:test';
+import { describe, it, afterEach } from 'node:test';
 import { equal, ifError } from 'node:assert/strict';
 import { unlinkSync, writeFileSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
-import { createRequire } from 'node:module';
 
 describe('1. ping', () => {
   it('1.1. ping midu.dev', (_, done) => {
@@ -47,21 +47,21 @@ describe('3. procesarArchivoPromise', () => {
     });
   });
 
-  // it('3.1. procesarArchivoPromise', async () => {
-  //   writeFileSync('input.txt', 'hola')
-  //   await procesarArchivoPromise()
-  //   const contenido = await readFile('output.txt', 'utf8')
-  //   equal(contenido, 'HOLA')
-  // })
+  it('3.1. procesarArchivoPromise', async () => {
+    writeFileSync('input.txt', 'hola');
+    await procesarArchivoPromise();
+    const contenido = await readFile('output.txt', 'utf8');
+    equal(contenido, 'HOLA');
+  });
 });
 
 describe('4. leerArchivos', () => {
-  // it('4.1. leerArchivos', () => {
-  //   const mensaje = leerArchivos()
-  //   equal(mensaje, 'hola qué tal')
-  // })
+  it('4 leerArchivosSync', () => {
+    const mensaje = leerArchivosSync();
+    equal(mensaje, 'hola qué tal');
+  });
 
-  it('4.1. leerArchivos', async () => {
+  it('4.1 leerArchivos', async () => {
     const mensaje = await leerArchivos();
     equal(mensaje, 'hola qué tal');
   });

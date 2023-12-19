@@ -1,6 +1,6 @@
 import net from 'node:net';
 import fs from 'node:fs';
-// import fs from 'node:fs/promises';
+import fsp from 'node:fs/promises';
 
 // ejercicio 1
 export const ping = (ip, callback) => {
@@ -83,3 +83,59 @@ export async function procesarArchivoPromise() {
 }
 
 await procesarArchivoPromise();
+
+// ejercicio 4
+
+export function leerArchivosSync() {
+  console.time('leer archivos');
+  const archivo1 = fs.readFileSync('archivo1.txt', 'utf8');
+  const archivo2 = fs.readFileSync('archivo2.txt', 'utf8');
+  const archivo3 = fs.readFileSync('archivo3.txt', 'utf8');
+
+  console.timeEnd('leer archivos');
+
+  return `${archivo1} ${archivo2} ${archivo3}`;
+}
+
+const text = leerArchivosSync();
+console.log(text);
+
+// ejercicio 4.1
+export async function leerArchivos() {
+  try {
+    console.time('leer archivos');
+    const archivo1 = await fsp.readFile('archivo1.txt', 'utf8');
+    const archivo2 = await fsp.readFile('archivo2.txt', 'utf8');
+    const archivo3 = await fsp.readFile('archivo3.txt', 'utf8');
+
+    console.timeEnd('leer archivos');
+
+    return `${archivo1} ${archivo2} ${archivo3}`;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+const text2 = await leerArchivos();
+console.log(text2);
+
+// ejercicio 4.2
+export async function leerArchivosPromiseAll() {
+  try {
+    console.time('leer archivos');
+    const [archivo1, archivo2, archivo3] = await Promise.all([
+      fsp.readFile('archivo1.txt', 'utf8'),
+      fsp.readFile('archivo2.txt', 'utf8'),
+      fsp.readFile('archivo3.txt', 'utf8'),
+    ]);
+
+    console.timeEnd('leer archivos');
+    return `${archivo1} ${archivo2} ${archivo3}`;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+}
+
+const text3 = await leerArchivosPromiseAll();
+console.log(text3);
