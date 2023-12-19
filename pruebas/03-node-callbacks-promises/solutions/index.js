@@ -139,3 +139,10 @@ export async function leerArchivosPromiseAll() {
 
 const text3 = await leerArchivosPromiseAll();
 console.log(text3);
+
+// ejercicio 5
+export async function delay(time) {
+  console.time('Time');
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+delay(3000).then(() => console.log('Hola mundo'));
