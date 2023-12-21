@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "dev": "node solutions/server.js",
     "test": "node --test"
   },
   "keywords": [],
@@ -12,5 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "supertest": "^6.3.3"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
   }
 }
