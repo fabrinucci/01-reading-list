@@ -2,7 +2,8 @@ import { describe, it, beforeEach, afterEach } from 'node:test';
 import { equal } from 'node:assert/strict';
 import { unlinkSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
-import { config } from '../solutions/dotenv.js';
+import dotenv from '../solutions/dotenv.js';
+const { config } = dotenv;
 
 describe('1. dotenv', () => {
   beforeEach(() => {
